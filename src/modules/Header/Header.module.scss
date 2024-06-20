@@ -133,6 +133,8 @@
     text-decoration: none;
     transition: $transitionTime;
     position: relative;
+    text-transform: uppercase;
+    font-weight: 800;
 
     &:hover {
       color: $grayPrimaryColor;

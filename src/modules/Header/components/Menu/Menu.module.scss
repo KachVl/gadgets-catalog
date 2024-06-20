@@ -10,8 +10,7 @@
   width: 100vw;
   background-color: $whiteColor;
   z-index: 2;
-  max-height: calc(100vh - 48px);
-  height: fill-available;
+  height: calc(100vh - 48px);
   justify-content: space-between;
   align-items: center;
   transition: $transitionTime;
@@ -61,6 +60,7 @@
     text-decoration: none;
     transition: $transitionTime;
     position: relative;
+    font-weight: 800;
 
     &:hover {
       color: $grayPrimaryColor;
