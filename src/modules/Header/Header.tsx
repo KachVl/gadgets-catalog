@@ -10,7 +10,7 @@ import whiteClose from './icons/whiteClose.svg';
 import classNames from 'classnames';
 import { Logo } from '../../shared/components/Logo/Logo';
 import { NavLink } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { AppContext } from '../../utils/AppContext';
 import { Menu } from './components/Menu/Menu';
 
@@ -42,14 +42,6 @@ export const Header = () => {
 
     return;
   };
-
-  useEffect(() => {
-    if (isMenuActive) {
-      pageStyles.overflowY = 'hidden';
-    } else {
-      pageStyles.overflowY = 'auto';
-    }
-  }, [isMenuActive, pageStyles]);
 
   return (
     <>
@@ -124,7 +116,15 @@ export const Header = () => {
                   ? { backgroundImage: `url(${whiteMenu})` }
                   : { backgroundImage: `url(${burgerMenuIcon})` }
             }
-            onClick={() => setIsMenuActive(!isMenuActive)}
+            onClick={() => {
+              setIsMenuActive(!isMenuActive);
+
+              if (!isMenuActive) {
+                pageStyles.overflowY = 'hidden';
+              } else {
+                pageStyles.overflowY = 'auto';
+              }
+            }}
           ></div>
 
           <NavLink
