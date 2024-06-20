@@ -10,7 +10,7 @@ import whiteClose from './icons/whiteClose.svg';
 import classNames from 'classnames';
 import { Logo } from '../../shared/components/Logo/Logo';
 import { NavLink } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../../utils/AppContext';
 import { Menu } from './components/Menu/Menu';
 
@@ -18,6 +18,7 @@ export const Header = () => {
   const { favorites, inCartItems, isDarkTheme, setIsDarkTheme } =
     useContext(AppContext);
   const [isMenuActive, setIsMenuActive] = useState(false);
+  const pageStyles = document.documentElement.style;
 
   const getActiveClass = ({ isActive }: { isActive: boolean }) =>
     classNames(
@@ -41,6 +42,14 @@ export const Header = () => {
 
     return;
   };
+
+  useEffect(() => {
+    if (isMenuActive) {
+      pageStyles.overflowY = 'hidden';
+    } else {
+      pageStyles.overflowY = 'auto';
+    }
+  }, [isMenuActive, pageStyles]);
 
   return (
     <>

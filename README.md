@@ -25,3 +25,22 @@ A website designed for an online gadgets store. It offers extensive functionalit
   <li>Smooth animations and transitions</li>
   <li>Full responsiveness</li>
 </ul>
+
+## To open this project locally:
+
+- Clone the repository:
+```
+git clone https://github.com/KachVl/gadgets-catalog.git
+```
+- Open the project:
+```
+code gadgets-catalog
+```
+- Install the dependencies:
+```
+npm install
+```
+- Start the project:
+```
+npm start
+```
