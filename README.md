@@ -2,7 +2,7 @@
 
 ## General Description
 
-A website designed for an online gadget store. It offers extensive functionality such as saving favorites and adding items to the cart with persistence after page reload. Users can search for desired products, select them by categories, and filter by various characteristics. There are two themes available for this website - Light and Dark.
+A website designed for an online gadgets store. It offers extensive functionality such as saving favorites and adding items to the cart with persistence after page reload. Users can search for desired products, select them by categories, and filter by various characteristics. There are two themes available for this website - Light and Dark.
 
 ## Demo and Mockup
 
