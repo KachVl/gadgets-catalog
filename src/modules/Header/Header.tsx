@@ -43,6 +43,16 @@ export const Header = () => {
     return;
   };
 
+  const handleMenuButton = () => {
+    if (!isMenuActive) {
+      pageStyles.overflowY = 'hidden';
+      setIsMenuActive(true);
+    } else {
+      pageStyles.overflowY = 'auto';
+      setIsMenuActive(false);
+    }
+  };
+
   return (
     <>
       <header
@@ -116,15 +126,7 @@ export const Header = () => {
                   ? { backgroundImage: `url(${whiteMenu})` }
                   : { backgroundImage: `url(${burgerMenuIcon})` }
             }
-            onClick={() => {
-              setIsMenuActive(!isMenuActive);
-
-              if (!isMenuActive) {
-                pageStyles.overflowY = 'hidden';
-              } else {
-                pageStyles.overflowY = 'auto';
-              }
-            }}
+            onClick={handleMenuButton}
           ></div>
 
           <NavLink
