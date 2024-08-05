@@ -15,6 +15,7 @@ type Props = {
 
 export const Menu: React.FC<Props> = ({ isMenuActive, setIsMenuActive }) => {
   const { favorites, inCartItems, isDarkTheme } = useContext(AppContext);
+  const pageStyles = document.documentElement.style;
 
   const getActiveClass = ({ isActive }: { isActive: boolean }) =>
     classNames(
@@ -39,6 +40,11 @@ export const Menu: React.FC<Props> = ({ isMenuActive, setIsMenuActive }) => {
     return;
   };
 
+  const handleLinkClick = () => {
+    setIsMenuActive(false);
+    pageStyles.overflowY = 'auto';
+  };
+
   return (
     <div
       className={classNames(
@@ -50,10 +56,7 @@ export const Menu: React.FC<Props> = ({ isMenuActive, setIsMenuActive }) => {
     >
       <nav className={styles.navigation}>
         <ul className={styles.navList}>
-          <li
-            className={styles.navList__item}
-            onClick={() => setIsMenuActive(false)}
-          >
+          <li className={styles.navList__item} onClick={handleLinkClick}>
             <NavLink className={getActiveClass} to="/">
               Home
             </NavLink>
@@ -66,18 +69,12 @@ export const Menu: React.FC<Props> = ({ isMenuActive, setIsMenuActive }) => {
               Phones
             </NavLink>
           </li>
-          <li
-            className={styles.navList__item}
-            onClick={() => setIsMenuActive(false)}
-          >
+          <li className={styles.navList__item} onClick={handleLinkClick}>
             <NavLink className={getActiveClass} to="/tablets">
               Tablets
             </NavLink>
           </li>
-          <li
-            className={styles.navList__item}
-            onClick={() => setIsMenuActive(false)}
-          >
+          <li className={styles.navList__item} onClick={handleLinkClick}>
             <NavLink className={getActiveClass} to="/accessories">
               Accessories
             </NavLink>
@@ -96,7 +93,7 @@ export const Menu: React.FC<Props> = ({ isMenuActive, setIsMenuActive }) => {
               ? { backgroundImage: `url(${whiteHeart})` }
               : { backgroundImage: `url(${heartIcon})` }
           }
-          onClick={() => setIsMenuActive(false)}
+          onClick={handleLinkClick}
         >
           {!!favorites.length && (
             <div className={styles.counter}>{favorites.length}</div>
@@ -113,7 +110,7 @@ export const Menu: React.FC<Props> = ({ isMenuActive, setIsMenuActive }) => {
               ? { backgroundImage: `url(${whiteCart})` }
               : { backgroundImage: `url(${cartIcon})` }
           }
-          onClick={() => setIsMenuActive(false)}
+          onClick={handleLinkClick}
         >
           {!!inCartItems.length && (
             <div className={styles.counter}>{inCartItems.length}</div>
