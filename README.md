@@ -1,4 +1,4 @@
-# Gadgets Catalogue
+# Gadgets Catalog
 
 ## General Description
 
